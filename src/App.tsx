@@ -1,6 +1,6 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
   return (
@@ -18,6 +18,9 @@ function App() {
         >
           Learn React
         </a>
+        <button className="inline-block rounded bg-blue-600 px-6 py-2.5 text-xs font-medium leading-tight">
+          Hello Tailwind
+        </button>
       </header>
     </div>
   );
