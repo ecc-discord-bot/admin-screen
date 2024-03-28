@@ -18,13 +18,16 @@ export const Terms = () => {
         {/* 第2条 */}
         <section>
           <h2 className="mb-4 mt-16 font-bold">第二条（学業の優先）</h2>
-          <p>授業の総合出席率を80%以上維持し、進級・卒業単位を確保しなければならない。</p>
+          <p>
+            授業の総合出席率を80%以上維持し、進級・卒業単位を確保しなければならない。
+          </p>
         </section>
         {/* 第3条 */}
         <section>
           <h2 className="mb-4 mt-16 font-bold">第三条（IoT Laboについて）</h2>
           <p>
-            IoT Labo（3501-3502教室）は授業時間外に「IoT部が活動する」名目で顧問が予約をしている。
+            IoT
+            Labo（3501-3502教室）は授業時間外に「IoT部が活動する」名目で顧問が予約をしている。
             よって、IoT部員であれば授業時間外でも使用することが可能となる。
           </p>
           <p>※学内イベントで使用する場合を除く</p>
@@ -66,34 +69,44 @@ export const Terms = () => {
         {/* 第5条 */}
         <section>
           <h2 className="mb-4 mt-16 font-bold">第五条（会費について）</h2>
-          <p>IoT部に所属する者には前期（4月1日-9月30日）後期（10月1日-3月31日）ごとに以下の会費を徴収する。</p>
+          <p>
+            IoT部に所属する者には前期（4月1日-9月30日）後期（10月1日-3月31日）ごとに以下の会費を徴収する。
+          </p>
           <ol className="m-6 list-outside list-disc">
             <li className="py-1">
-                <div className="flex items-start">
-                  <span className="whitespace-pre-line">
-                    1年生：1,000円
-                  </span>
-                </div>
-              </li>
-              <li className="py-1">
-                <div className="flex items-start">
-                  <span className="whitespace-pre-line">
-                    1年生以外：2,000円、ただし前後期分をまとめて支払った場合は1,000円を返還する。
-                  </span>
-                </div>
-              </li>
+              <div className="flex items-start">
+                <span className="whitespace-pre-line">1年生：1,000円</span>
+              </div>
+            </li>
+            <li className="py-1">
+              <div className="flex items-start">
+                <span className="whitespace-pre-line">
+                  1年生以外：2,000円、ただし前後期分をまとめて支払った場合は1,000円を返還する。
+                </span>
+              </div>
+            </li>
           </ol>
-          <p>徴収した会費の用途は月例会での部員による投票の下、過半数の票を集めた場合に使用される。</p>
+          <p>
+            徴収した会費の用途は月例会での部員による投票の下、過半数の票を集めた場合に使用される。
+          </p>
         </section>
         <section className="mt-16 flex justify-center">
-          <input type="checkbox" className="accent-blue-500"></input>
-          <a>上記の項目に同意し、IoT部に入部します。</a>
+          <input
+            type="checkbox"
+            className="accent-blue-500"
+            id="agreement"
+          ></input>
+          <label className="ml-2" htmlFor="agreement">
+            上記の項目に同意し、IoT部に入部します。
+          </label>
         </section>
-        <section className="mt-2 flex justify-center">
+        <section className="mt-4 flex justify-center">
           <input type="text" placeholder="氏名" className="border-2"></input>
         </section>
-        <section className="mt-16 flex justify-end">
-          <button className="w-24 rounded-md font-bold bg-blue-500 text-white">次へ進む</button>
+        <section className="mt-24 flex justify-end">
+          <button className="w-24 rounded-md bg-blue-500 font-bold text-white">
+            次へ進む
+          </button>
         </section>
       </div>
     </section>
