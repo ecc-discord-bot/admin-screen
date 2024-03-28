@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
-import { Terms } from "./pages/terms";
+import { Terms } from "./pages/Terms";
 
 export const Routers = () => {
   return (

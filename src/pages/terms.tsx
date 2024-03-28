@@ -1,9 +1,22 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const Terms = () => {
+  const [selected, setSelected] = useState<boolean>(false);
+  const [name, setName] = useState<string>("");
+
   const navigate = useNavigate();
+
+  // 次へ進むボタンが押されたときの処理
   const next = () => {
-    console.log("同意しました");
+    if (!selected && name === "") {
+      alert("氏名を入力してください\n同意してください");
+    } else if (name === "") {
+      alert("氏名を入力してください");
+    } else if (!selected) {
+      alert("同意してください");
+    }
+    console.log(name);
   };
 
   return (
@@ -95,16 +108,30 @@ export const Terms = () => {
             type="checkbox"
             className="accent-blue-500"
             id="agreement"
+            onChange={(e) => {
+              console.log(e.target.checked);
+              setSelected(e.target.checked);
+            }}
           ></input>
           <label className="ml-2" htmlFor="agreement">
             上記の項目に同意し、IoT部に入部します。
           </label>
         </section>
         <section className="mt-4 flex justify-center">
-          <input type="text" placeholder="氏名" className="border-2"></input>
+          <input
+            type="text"
+            placeholder="氏名"
+            className="border-2"
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          ></input>
         </section>
         <section className="mt-24 flex justify-end">
-          <button className="w-24 rounded-md bg-blue-500 font-bold text-white">
+          <button
+            className="w-24 rounded-md bg-blue-500 font-bold text-white"
+            onClick={next}
+          >
             次へ進む
           </button>
         </section>
