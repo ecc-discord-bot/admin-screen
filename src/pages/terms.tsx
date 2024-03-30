@@ -15,8 +15,9 @@ export const Terms = () => {
       alert("氏名を入力してください");
     } else if (!selected) {
       alert("同意してください");
+    } else {
+      navigate("/registration", { state: { name: name } });
     }
-    console.log(name);
   };
 
   return (
