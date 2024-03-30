@@ -1,0 +1,16 @@
+<svg
+  width="36"
+  height="36"
+  viewBox="0 0 16 16"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <rect opacity="0.01" width="16" height="16" fill="black"></rect>
+  <path d="M1 1H7.70625V7.70625H1V1Z" fill="#FF6900"></path>
+  <path d="M8.29395 1H15.0002V7.70625H8.29395V1Z" fill="#83D400"></path>
+  <path d="M1 8.2937H7.70625V15H1V8.2937Z" fill="#00B6F9"></path>
+  <path
+    d="M8.29395 8.2937H15.0002V15H8.29395V8.2937Z"
+    fill="#FFCB00"
+  ></path>
+</svg>
