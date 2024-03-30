@@ -1,11 +1,20 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export const Terms = () => {
+  const navigate = useNavigate();
+   const location = useLocation();
+   
   const [selected, setSelected] = useState<boolean>(false);
   const [name, setName] = useState<string>("");
+  const [sendLogin] = useState<{ path: string }>(location.state || { path: "" });
 
-  const navigate = useNavigate();
+  useEffect(() => {
+    // url直打ちでアクセスしたときにログインページにリダイレクト
+    if (!sendLogin.path) {
+      navigate("/login");
+    }
+  }, [name, navigate]);
 
   // 次へ進むボタンが押されたときの処理
   const next = () => {

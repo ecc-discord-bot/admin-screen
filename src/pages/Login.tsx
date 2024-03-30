@@ -35,7 +35,7 @@ const Login = () => {
     // 全ての認証を終えたか確認
     const allTrue = auth.every((value) => value === true);
     // auth のすべての要素が true になった場合の処理
-    if (allTrue) navigate("/terms");
+    if (allTrue) navigate("/terms", { state: { path: "/login" } });
   }, [auth]);
 
   return (
