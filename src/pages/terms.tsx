@@ -3,11 +3,13 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 export const Terms = () => {
   const navigate = useNavigate();
-   const location = useLocation();
-   
+  const location = useLocation();
+
   const [selected, setSelected] = useState<boolean>(false);
   const [name, setName] = useState<string>("");
-  const [sendLogin] = useState<{ path: string }>(location.state || { path: "" });
+  const [sendLogin] = useState<{ path: string }>(
+    location.state || { path: "" },
+  );
 
   useEffect(() => {
     // url直打ちでアクセスしたときにログインページにリダイレクト
@@ -17,7 +19,7 @@ export const Terms = () => {
   }, [name, navigate]);
 
   // 次へ進むボタンが押されたときの処理
-  const next = () => {
+  const next = async () => {
     if (!selected && name === "") {
       alert("氏名を入力してください\n同意してください");
     } else if (name === "") {
@@ -25,7 +27,16 @@ export const Terms = () => {
     } else if (!selected) {
       alert("同意してください");
     } else {
-      navigate("/registration", { state: { name: name } });
+      // const response = await fetch(
+      //   // TODO: 登録？
+      //   `http://localhost:3000/`,
+      // );
+      // if (response.ok) {
+        navigate("/registration", { state: { name: name } });
+      // } else {
+      //   console.error("Registration failed:", response.status);
+      //   navigate("/login");
+      // }
     }
   };
 
