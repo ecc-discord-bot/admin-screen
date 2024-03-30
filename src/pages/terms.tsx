@@ -21,7 +21,7 @@ export const Terms = () => {
   };
 
   return (
-    <section className="font-meiryo flex justify-center">
+    <section className="font-meiryo flex justify-center bg-gray-50">
       <div className="text-custom-black mx-[10%] my-[5%] w-10/12 bg-white p-[5%] shadow-md shadow-slate-200">
         <h1 className="mb-16 text-center text-4xl font-bold">同意書</h1>
         {/* 第1条 */}
