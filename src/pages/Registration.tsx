@@ -16,17 +16,19 @@ declare global {
 const Registration: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const [sendName] = useState<{ name: string }>(location.state || { name: "" });
+  const [sendName] = useState<{ className: string }>(
+    location.state || { className: "" },
+  );
 
   useEffect(() => {
     // ページにアクセスしたときに名前がなければ/termsにリダイレクト
-    if (!sendName.name) {
+    if (!sendName.className) {
       navigate("/terms");
     }
 
     // dropプラグインを適用
     $("h1").drop();
-  }, [sendName.name, navigate]);
+  }, [sendName.className, navigate]);
 
   return (
     <>
