@@ -21,9 +21,9 @@ export const Terms = () => {
   // 次へ進むボタンが押されたときの処理
   const next = async () => {
     if (!selected && name === "") {
-      alert("氏名を入力してください\n同意してください");
+      alert("クラスを入力してください\n同意してください");
     } else if (name === "") {
-      alert("氏名を入力してください");
+      alert("クラスを入力してください");
     } else if (!selected) {
       alert("同意してください");
     } else {
