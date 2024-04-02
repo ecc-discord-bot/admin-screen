@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
 import LoginBtn from "../components/LoginBtn";
 // ログインアイコン
 import { BsDiscord } from "react-icons/bs";
-import microsoft from "../assets/microsoft.svg";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
