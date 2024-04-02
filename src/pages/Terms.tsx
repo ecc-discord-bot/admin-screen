@@ -1,42 +1,72 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
+// クラス名ファイル
+import classNameList from "../classNameList.json";
+
+type Classes = {
+  class: {
+    [department: string]: {
+      [key: string]: string;
+    };
+  };
+};
+
 export const Terms = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
   const [selected, setSelected] = useState<boolean>(false);
-  const [name, setName] = useState<string>("");
+  const [className, setClassName] = useState<string>("");
   const [sendLogin] = useState<{ path: string }>(
     location.state || { path: "" },
   );
+  const data: Classes = classNameList;
 
   useEffect(() => {
     // url直打ちでアクセスしたときにログインページにリダイレクト
     if (!sendLogin.path) {
       navigate("/login");
     }
-  }, [name, navigate]);
+  }, [className, navigate]);
 
   // 次へ進むボタンが押されたときの処理
   const next = async () => {
-    if (!selected && name === "") {
-      alert("氏名を入力してください\n同意してください");
-    } else if (name === "") {
-      alert("氏名を入力してください");
+    if (!selected && className === "") {
+      alert("クラスを入力してください\n同意してください");
+    } else if (className === "") {
+      alert("クラスを入力してください");
     } else if (!selected) {
       alert("同意してください");
     } else {
-      // const response = await fetch(
-      //   // TODO: 登録？
-      //   `http://localhost:3000/`,
-      // );
-      // if (response.ok) {
-        navigate("/registration", { state: { name: name } });
-      // } else {
-      //   console.error("Registration failed:", response.status);
-      //   navigate("/login");
-      // }
+
+      let found = false; // クラス名が見つかったかどうかのフラグ
+      
+      for (const department in data.class) {
+        for (const key in data.class[department]) {
+          if (data.class[department][key] === className) {
+            console.log("一致するものがありました");
+            found = true; // 見つかったらフラグをtrueに設定
+            break;
+          }
+        }
+        if (found) break;
+      }
+      // 一致するものが見つからなかった場合のみアラートを表示
+      if (!found) {
+        alert("クラスが存在しません");
+      }else{
+        // const response = await fetch(
+        //   // TODO: 登録？
+        //   `http://localhost:3000/`,
+        // );
+        // if (response.ok) {
+        // navigate("/registration", { state: { className: className } });
+        // } else {
+        //   console.error("Registration failed:", response.status);
+        //   navigate("/login");
+        // }
+      }
     }
   };
 
@@ -141,10 +171,10 @@ export const Terms = () => {
         <section className="mt-4 flex justify-center">
           <input
             type="text"
-            placeholder="氏名"
+            placeholder="クラス (例: IE2A"
             className="border-2"
             onChange={(e) => {
-              setName(e.target.value);
+              setClassName(e.target.value);
             }}
           ></input>
         </section>
