@@ -141,7 +141,7 @@ export const Terms = () => {
         <section className="mt-4 flex justify-center">
           <input
             type="text"
-            placeholder="氏名"
+            placeholder="クラス (例: IE2A"
             className="border-2"
             onChange={(e) => {
               setName(e.target.value);
