@@ -191,6 +191,13 @@ export const Terms = () => {
                                 </span>
                             </div>
                         </li>
+                        <li className="py-1">
+                            <div className="flex items-start">
+                                <span className="whitespace-pre-line">
+                                    会費は同意書を提出した後、部活動に参加した際に部長が個人ごとに徴収する。
+                                </span>
+                            </div>
+                        </li>
                     </ol>
                     <p>
                         徴収した会費の用途は月例会での部員による投票の下、過半数の票を集めた場合に使用される。
