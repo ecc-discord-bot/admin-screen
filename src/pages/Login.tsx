@@ -13,7 +13,8 @@ const Login = () => {
       //   `http://localhost:3000/auth/discord/login`,
       // );
       // if (response.ok) {
-      navigate("/terms", { state: { path: "/login" } });
+      //navigate("/terms", { state: { path: "/login" } });
+      window.location.href = "https://depuroi.tail6cf7b.ts.net/app/login"
       // }
     } catch (error) {
       console.error("Login failed:", error);

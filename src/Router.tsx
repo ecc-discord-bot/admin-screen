@@ -6,9 +6,52 @@ import { useEffect } from "react";
 
 export const Routers = () => {
   useEffect(() => {
-    if (window.location.pathname === "/") {
-      window.location.pathname = "/login";
+    document.title = "IOT部";
+    
+    // url直打ちでアクセスしたときにログインページにリダイレクト
+    if (window.location.pathname != "/") {
+      return;
     }
+    fetch("/app/userinfo",{
+      "method" : "GET"
+    }).then((res) => {
+      console.log(res.status);
+      //ログインしているか
+      if (res.status == 200) {
+        //新しいトークンを取得
+        fetch("/app/refresh", {
+            method: "POST",
+        }).then((req) => {
+            //失敗したとき戻る
+            if (req.status != 200) {
+              //ログインに飛ばす
+              console.log("ログインへ遷移します");
+              window.location.pathname = "/login";
+              return;
+            }
+            
+            //更新を確定する
+            fetch("/app/refreshs", {
+                method: "POST",
+            }).then((req) => {
+                //失敗したとき戻る
+                if (req.status != 200) {
+                  //ログインに飛ばす
+                  console.log("ログインへ遷移します");
+                  window.location.pathname = "/login";
+                  return;
+                }
+
+                //登録画面に飛ばす
+                console.log("登録画面へ遷移します");
+                window.location.pathname = "/terms";
+            })
+        })
+      } else {
+        //ログインに飛ばす
+        window.location.pathname = "/login";
+      }
+    })
   }, []);
   return (
     <>
