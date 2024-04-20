@@ -14,6 +14,8 @@ const Login = () => {
       // );
       // if (response.ok) {
       //navigate("/terms", { state: { path: "/login" } });
+      //TODO 実際に使うときは戻す
+      //window.location.href = "https://127.0.0.1:8443/app/login"
       window.location.href = "https://depuroi.tail6cf7b.ts.net/app/login"
       // }
     } catch (error) {

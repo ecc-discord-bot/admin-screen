@@ -8,9 +8,9 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <Routers />
-  </React.StrictMode>,
+  //<React.StrictMode>
+  <Routers />
+  //</React.StrictMode>,
 );
 
 document.title = "IOT部";
